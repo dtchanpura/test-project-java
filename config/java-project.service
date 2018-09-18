@@ -1,0 +1,12 @@
+[Unit]
+Description=Java Project
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/java-project
+ExecStart=/usr/bin/java -jar /opt/java-project/test-project-0.0.3.jar
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
