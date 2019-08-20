@@ -4,7 +4,7 @@ pipeline {
     stage('Check Warnings') {
       steps {
         scanForIssues(tool: [$class: 'CheckStyle', pattern:"**/checkstyle.xml"])
-        recordIssues(tool: [$class: 'CheckStyle', pattern:"**/checkstyle.xml"], aggregatingResults: true, healthy: 1, unhealthy: 10)
+        recordIssues(tool: [$class: 'CheckStyle', pattern:"src/main/resources/checkstyle.xml"], aggregatingResults: true, healthy: 1, unhealthy: 10)
       }
     }
   }
