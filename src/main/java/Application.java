@@ -17,9 +17,9 @@ public class Application {
         counter++;
         try {
             // Emulate business logic
-            Thread.sleep(1000);
+            Thread.sleep( 1000);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return "Hello World: " + String.valueOf(counter);
     }

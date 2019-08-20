@@ -1,10 +1,13 @@
 pipeline {
   agent any
   stages {
+    stage('Build') {
+      sh 'mvn pmd:pmd clean package'
+    }
     stage('Check Warnings') {
       steps {
-        scanForIssues(tool: [$class: 'CheckStyle', pattern:"**/checkstyle.xml"])
-        recordIssues(tool: [$class: 'CheckStyle', pattern:"src/main/resources/checkstyle.xml"], aggregatingResults: true, healthy: 1, unhealthy: 10)
+        // scanForIssues(tool: [$class: 'PMD', pattern:"**/checkstyle.xml"])
+        recordIssues(tool: [$class: 'PMD', pattern:"target/pmd.xml"], aggregatingResults: true)
       }
     }
   }
