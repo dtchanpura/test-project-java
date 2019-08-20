@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn pmd:pmd clean package'
+        sh 'mvn -B pmd:pmd clean package'
       }
     }
     stage('Check Warnings') {
