@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      sh 'mvn pmd:pmd clean package'
+      steps {
+        sh 'mvn pmd:pmd clean package'
+      }
     }
     stage('Check Warnings') {
       steps {
