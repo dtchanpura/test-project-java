@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Check Warnings') {
       steps {
-        // scanForIssues(tool: [$class: 'PMD', pattern:"**/checkstyle.xml"])
+        scanForIssues(tool: [$class: 'Pmd', pattern:"**/checkstyle.xml"])
         recordIssues(tool: [$class: 'Pmd', pattern:"target/pmd.xml"], aggregatingResults: true)
       }
     }
