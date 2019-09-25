@@ -12,5 +12,13 @@ pipeline {
         recordIssues(tool: [$class: 'Pmd', pattern:"target/pmd.xml"], aggregatingResults: true)
       }
     }
+    stage('deployment') {
+        when {
+            tag '*.*.*'
+        }
+        steps {
+            sh 'echo deploying...'
+        }
+    }
   }
 }
